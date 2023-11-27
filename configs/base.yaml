@@ -1,0 +1,40 @@
+SEED: 7
+DEBUG: False
+LOG_FREQ: 100
+INFERENCE_CHECKPOINT: 15
+
+TRAINER:
+  LR: 1e-4
+  BATCH_SIZE: 8
+  EPOCHS: 15
+  OPTIMIZER: 'adamw'
+
+MODEL:
+  TYPE: 'unet'
+  OUT_CHANNELS: 1
+  IN_CHANNELS: 4
+  LOSS_TYPE: 'PowerJaccardLoss'
+  TOPOLOGY: [64, 128, 256, 512,]
+
+DATALOADER:
+  NUM_WORKER: 8
+  SHUFFLE: True
+  YEARS: [2018]
+  LABEL: 'ua'
+  SENSOR: 'sentinel2'
+  POS_CLASS: [14100]
+  S2_BANDS: ['B2', 'B3', 'B4', 'B8']
+  L8_BANDS: ['B2', 'B3', 'B4', 'B5']
+
+AUGMENTATION:
+  CROP_SIZE: 256
+  RANDOM_FLIP: True
+  RANDOM_ROTATE: True
+  COLOR_SHIFT: False
+  GAMMA_CORRECTION: False
+
+DATASET:
+  TRAIN: ['sofia', 'athens', 'milan']
+  VAL: ['brussels']
+
+

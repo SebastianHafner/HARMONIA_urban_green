@@ -1,0 +1,9 @@
+_BASE_: "base.yaml"
+DEBUG: False
+
+DATALOADER:
+  YEARS: [2012, 2018]
+  LABEL: 'ua'
+  SENSOR: 'landsat8'
+  POS_CLASS: [14100]
+  L8_BANDS: ['B2', 'B3', 'B4', 'B5']
